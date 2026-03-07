@@ -1,1 +1,64 @@
-nj
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Munene's Special Surprise ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="password-box">
+            <div class="heart-icon">💌</div>
+            <h1>A Little Something for Munene</h1>
+            <p class="subtitle">Enter our special code to begin</p>
+            
+            <input type="password" id="password" placeholder="Enter the code" autofocus>
+            <button onclick="checkPassword()">Open My Surprise</button>
+            
+            <p id="errorMessage" class="error-message"></p>
+            
+            <div class="hint">
+                <small>💝 Hint: It's the date we became "us" (MMDD)</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkPassword() {
+            // CHANGE THIS TO YOUR SPECIAL DATE (just month and day for 1-month!)
+            const correctPassword = "0317"; // Example: March 17th (MMDD)
+            
+            const enteredPassword = document.getElementById('password').value.replace(/\D/g, '');
+            const errorElement = document.getElementById('errorMessage');
+            
+            if (enteredPassword === correctPassword) {
+                // Successful entry - redirect to main page
+                window.location.href = 'main.html';
+            } else {
+                const messages = [
+                    "Not quite right, beautiful. Try again? 💕",
+                    "Hmm, think about our special day...",
+                    "Almost! It's the day we started our story ❤️",
+                    "Nice try! But you know the real date 😊"
+                ];
+                const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+                errorElement.textContent = randomMessage;
+                
+                const box = document.querySelector('.password-box');
+                box.style.animation = 'shake 0.5s';
+                setTimeout(() => {
+                    box.style.animation = '';
+                }, 500);
+            }
+        }
+
+        document.getElementById('password').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPassword();
+            }
+        });
+    </script>
+</body>
+</html>

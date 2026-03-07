@@ -1,1 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Munene ❤️</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-container">
+        <!-- Music Player Bar -->
+        <div class="music-bar">
+            <div class="music-info">
+                <span class="now-playing">🎵 Now Playing:</span>
+                <span class="song-title">"Unthinkable" - Alicia Keys</span>
+            </div>
+            <button id="musicToggle" class="music-btn">🔊 Playing</button>
+        </div>
 
+        <!-- Main Content -->
+        <div class="content-wrapper">
+            <!-- Header Section -->
+            <div class="header-section">
+                <h1 class="main-title">Hey Beautiful <span class="heart">❤️</span></h1>
+                <p class="subtitle">I made something special for you...</p>
+            </div>
+
+            <!-- Interactive Love Quiz -->
+            <div class="quiz-container" id="quizContainer">
+                <div class="quiz-box">
+                    <h2>The Munene Love Test</h2>
+                    
+                    <!-- Question 1 -->
+                    <div id="question1" class="question active">
+                        <p class="question-text">Do you love Munene? 💭</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="loveYes" class="love-checkbox"> 
+                                <span class="checkbox-custom"></span>
+                                Tick here if you ❤️ LOVE Munene
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="loveNo" class="love-checkbox"> 
+                                <span class="checkbox-custom"></span>
+                                Tick here if you DON'T love Munene 😢
+                            </label>
+                        </div>
+                        <div id="loveResponse" class="response-message"></div>
+                    </div>
+
+                    <!-- Question 2 (Hidden Initially) -->
+                    <div id="question2" class="question">
+                        <p class="question-text">Now that we've established you love Munene... 💕</p>
+                        <p class="invite-text">Would you like to go on a special date?</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="dateYes" class="date-checkbox"> 
+                                <span class="checkbox-custom"></span>
+                                YES! I'd love to! 💫
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="dateNo" class="date-checkbox"> 
+                                <span class="checkbox-custom"></span>
+                                No, maybe another time... 📅
+                            </label>
+                        </div>
+                        <div id="dateResponse" class="response-message"></div>
+                    </div>
+
+                    <!-- Question 3 (The Proposal - Hidden Initially) -->
+                    <div id="question3" class="question proposal-question">
+                        <div class="proposal-box">
+                            <h3 class="proposal-title">Will You Make Me the Happiest Person?</h3>
+                            <div class="proposal-options">
+                                <button id="proposalYes" class="proposal-btn yes-btn">Yes! 💍</button>
+                                <button id="proposalNo" class="proposal-btn no-btn">Ask me again 💝</button>
+                            </div>
+                            <div id="proposalResponse" class="response-message"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Photo Gallery (Appears After Love Confirmation) -->
+            <div id="gallerySection" class="gallery-section hidden">
+                <h2 class="section-title">Our Story So Far... 📸</h2>
+                <div class="photo-grid">
+                    <!-- Add your photos here - I'll create placeholders -->
+                    <div class="photo-card">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #ffc0cb, #add8e6)">
+                            <span class="photo-icon">📷</span>
+                            <p>Your Photo Here</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #add8e6, #c0c0c0)">
+                            <span class="photo-icon">📷</span>
+                            <p>Your Photo Here</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #c0c0c0, #ffc0cb)">
+                            <span class="photo-icon">📷</span>
+                            <p>Your Photo Here</p>
+                        </div>
+                    </div>
+                    <div class="photo-card">
+                        <div class="photo-placeholder" style="background: linear-gradient(135deg, #ffc0cb, #ffffff)">
+                            <span class="photo-icon">📷</span>
+                            <p>Your Photo Here</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Love Letter Section (Hidden Initially) -->
+            <div id="loveLetterSection" class="love-letter-section hidden">
+                <div class="love-letter">
+                    <h2>A Letter From My Heart 💌</h2>
+                    <div class="letter-content">
+                        <p>My Dearest Munene,</p>
+                        <p>One month ago, I never imagined I'd meet someone who makes me feel the way you do. Every moment with you feels like a beautiful dream I never want to wake up from.</p>
+                        <p>You have this incredible way of making ordinary moments feel extraordinary. Your smile lights up my world, and your laugh is my favorite sound.</p>
+                        <p class="inside-joke">Remember when [Add your inside joke here]? That's when I knew you were special. 😊</p>
+                        <p>This past month has been amazing, and I can't wait to create countless more memories with you.</p>
+                        <p class="signature">Yours,<br>[Your Name] ❤️</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Element (Hidden) -->
+    <audio id="bgMusic" loop>
+        <source src="https://www.dropbox.com/s/your-music-file/unthinkable.mp3?raw=1" type="audio/mpeg">
+        <!-- I'll help you add the actual music file -->
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

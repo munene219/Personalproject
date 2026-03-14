@@ -3,132 +3,205 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Munene ❤️</title>
+    <title>For You 🎨</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Music Player Bar -->
-    <div class="music-bar">
+    <!-- START SCREEN -->
+    <div class="start-screen" id="startScreen">
+        <div class="start-card">
+            <div class="paint-brush-icon">🎨</div>
+            <h1>An Artistic Journey</h1>
+            <p>A piece of art made just for you,<br>stroke by stroke, layer by layer.</p>
+            <p style="font-size: 16px; margin-bottom: 20px;">🎵 Featuring "Unthinkable" by Alicia Keys</p>
+            <button class="start-button" id="startExperience">
+                Click Here to Begin
+                <span style="display: block; font-size: 14px; margin-top: 5px;">✨ Let the painting come to life ✨</span>
+            </button>
+            <div class="paint-drip-decoration"></div>
+        </div>
+    </div>
+
+    <!-- Music Bar -->
+    <div class="music-bar" id="musicBar" style="display: none;">
         <div class="music-info">
             <span class="now-playing">🎵 Now Playing:</span>
             <span class="song-title">"Unthinkable" - Alicia Keys</span>
         </div>
-        <button id="musicToggle" class="music-btn">🔊 Play Music</button>
+        <button id="musicToggle" class="music-btn">🎨 Pause</button>
     </div>
 
-    <!-- Audio Element - YOUR DROPBOX LINK IS HERE -->
+    <!-- Audio Element -->
     <audio id="bgMusic" loop preload="auto">
-        <source src="https://www.dropbox.com/scl/fi/luv5e2mt59yp6kopaeym9/un-thinkable-alicia-keys.mpeg?rlkey=rgp5wnkumqtxjssanmw6f9iqm&st=ag9y64mb&dl=1" type="audio/mpeg">
-        Your browser doesn't support this audio player.
+        <source src="https://www.dropbox.com/scl/fi/luv5e2mt59yp6kopaeym9/un-thinkable-alicia-keys.mpeg?rlkey=rgp5wnkumqtxjssanmw6f9iqm&st=ag9y64mb&raw=1" type="audio/mpeg">
     </audio>
 
     <!-- Main Content -->
-    <div class="content-wrapper">
-        <!-- Header Section -->
-        <div class="header-section">
-            <h1 class="main-title">Hey Beautiful <span class="heart">❤️</span></h1>
-            <p class="subtitle">I made something special for you...</p>
+    <div class="content-wrapper" id="mainContent" style="opacity: 0;">
+        
+        <!-- LAYER 1: Welcome -->
+        <div class="layer visible" id="layer1">
+            <div class="header-section splatter">
+                <h1 class="main-title">A Piece of Art <span class="heart">🎨</span></h1>
+                <p class="subtitle">Made just for you, stroke by stroke</p>
+            </div>
+            <div class="layer-divider"></div>
         </div>
 
-        <!-- Interactive Love Quiz -->
-        <div class="quiz-container" id="quizContainer">
-            <div class="quiz-box">
-                <h2>The Munene Love Test</h2>
+        <!-- LAYER 2: Love Question -->
+        <div class="layer" id="layer2">
+            <div class="quiz-container">
+                <div class="quiz-box">
+                    <h2>Your Artistic Journey Begins</h2>
+                    
+                    <div id="question1" class="question active">
+                        <p class="question-text">First brush stroke... Do you love me? 💭</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="loveYes"> 
+                                🎨 Yes - You're my masterpiece
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="loveNo"> 
+                                🖌️ No - Let me paint you a better picture
+                            </label>
+                        </div>
+                        <div id="loveResponse" class="response-message"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layer-divider"></div>
+        </div>
+
+        <!-- LAYER 3: Date Question -->
+        <div class="layer" id="layer3">
+            <div class="quiz-container">
+                <div class="quiz-box">
+                    <div id="question2" class="question">
+                        <p class="question-text">Now let's add some color... 🎨</p>
+                        <p class="invite-text">Ready to create our next masterpiece together?</p>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="dateYes"> 
+                                🌈 Yes - Let's paint our story
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="dateNo"> 
+                                ✨ Not yet - I'm still sketching
+                            </label>
+                        </div>
+                        <div id="dateResponse" class="response-message"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="layer-divider"></div>
+        </div>
+
+        <!-- LAYER 4: Gallery -->
+        <div id="gallerySection" class="gallery-section layer hidden">
+            <h2 class="section-title">Our Story in Motion 🎨</h2>
+            
+            <div class="artistic-slideshow">
+                <div class="slides-container">
+                    <div class="slide active">
+                        <img src="photos/photo2.jpeg" alt="Memory 1">
+                    </div>
+                    <div class="slide">
+                        <img src="photos/photo4.jpeg" alt="Memory 2">
+                    </div>
+                    <div class="slide">
+                        <img src="photos/photo7.jpeg" alt="Memory 3">
+                    </div>
+                    <div class="slide">
+                        <img src="photos/photo3.jpeg" alt="Memory 4">
+                    </div>
+                </div>
                 
-                <!-- Question 1 -->
-                <div id="question1" class="question active">
-                    <p class="question-text">Do you love Munene? 💭</p>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="loveYes" class="love-checkbox"> 
-                            <span class="checkbox-custom"></span>
-                            Tick here if you ❤️ LOVE Munene
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="loveNo" class="love-checkbox"> 
-                            <span class="checkbox-custom"></span>
-                            Tick here if you DON'T love Munene 😢
-                        </label>
-                    </div>
-                    <div id="loveResponse" class="response-message"></div>
+                <div class="slideshow-nav">
+                    <div class="nav-arrow" id="prevSlide">←</div>
+                    <div class="nav-arrow" id="nextSlide">→</div>
                 </div>
+            </div>
+            
+            <div class="slideshow-dots" id="slideshowDots"></div>
+            <div class="layer-divider"></div>
+        </div>
 
-                <!-- Question 2 -->
-                <div id="question2" class="question">
-                    <p class="question-text">Now that we've established you love Munene... 💕</p>
-                    <p class="invite-text">Would you like to go on a special date?</p>
-                    <div class="checkbox-group">
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="dateYes" class="date-checkbox"> 
-                            <span class="checkbox-custom"></span>
-                            YES! I'd love to! 💫
-                        </label>
-                        <label class="checkbox-label">
-                            <input type="checkbox" id="dateNo" class="date-checkbox"> 
-                            <span class="checkbox-custom"></span>
-                            No, maybe another time... 📅
-                        </label>
+        <!-- LAYER 5: Mystery Date Question (NEW) -->
+        <div class="layer" id="layer5">
+            <div class="quiz-container">
+                <div class="quiz-box">
+                    <div id="questionDate" class="question">
+                        <h2 style="font-size: 28px; color: #ff69b4; text-align: center;">A Special Invitation 🎭</h2>
+                        
+                        <div style="text-align: center; margin: 30px 0;">
+                            <span style="font-size: 60px;">🗺️</span>
+                        </div>
+                        
+                        <p style="font-size: 24px; text-align: center; color: #4a4a4a;">
+                            Will you be my date on<br> 
+                            <span style="font-size: 48px; color: #ff69b4; font-weight: bold; display: block; margin: 15px 0;">
+                                February 16th
+                            </span>
+                            as we explore a mystery together?
+                        </p>
+                        
+                        <div class="checkbox-group" style="max-width: 400px; margin: 30px auto;">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="mysteryDateYes"> 
+                                YES! I'm ready for an adventure! 🎭
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="mysteryDateNo"> 
+                                Tell me more... 💫
+                            </label>
+                        </div>
+                        
+                        <div id="mysteryDateResponse" class="response-message"></div>
                     </div>
-                    <div id="dateResponse" class="response-message"></div>
                 </div>
+            </div>
+            <div class="layer-divider"></div>
+        </div>
 
-                <!-- Question 3 - The Proposal -->
-                <div id="question3" class="question proposal-question">
-                    <div class="proposal-box">
-                        <h3 class="proposal-title">Will You Make Me the Happiest Person?</h3>
+        <!-- LAYER 6: Proposal -->
+        <div class="layer" id="layer6">
+            <div class="quiz-container">
+                <div class="quiz-box proposal-box">
+                    <div id="questionProposal" class="question">
+                        <h3 class="proposal-title">Will You Be My Masterpiece?</h3>
                         <div class="proposal-options">
-                            <button id="proposalYes" class="proposal-btn yes-btn">Yes! 💍</button>
-                            <button id="proposalNo" class="proposal-btn no-btn">Ask me again 💝</button>
+                            <button id="proposalYes" class="proposal-btn yes-btn">Yes! 🎨</button>
+                            <button id="proposalNo" class="proposal-btn no-btn">Paint me another picture 💝</button>
                         </div>
                         <div id="proposalResponse" class="response-message"></div>
                     </div>
                 </div>
             </div>
+            <div class="layer-divider"></div>
         </div>
 
-        <!-- Photo Gallery -->
-        <div id="gallerySection" class="gallery-section hidden">
-            <h2 class="section-title">Our Story So Far... 📸</h2>
-            <div class="photo-grid">
-                <div class="photo-card">
-                    <div class="photo-placeholder" style="background: linear-gradient(135deg, #ffc0cb, #add8e6)">
-                        <span class="photo-icon">📷</span>
-                        <p>Add your photo here</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder" style="background: linear-gradient(135deg, #add8e6, #c0c0c0)">
-                        <span class="photo-icon">📷</span>
-                        <p>Add your photo here</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder" style="background: linear-gradient(135deg, #c0c0c0, #ffc0cb)">
-                        <span class="photo-icon">📷</span>
-                        <p>Add your photo here</p>
-                    </div>
-                </div>
-                <div class="photo-card">
-                    <div class="photo-placeholder" style="background: linear-gradient(135deg, #ffc0cb, #ffffff)">
-                        <span class="photo-icon">📷</span>
-                        <p>Add your photo here</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Love Letter Section -->
-        <div id="loveLetterSection" class="love-letter-section hidden">
+        <!-- LAYER 7: Love Letter -->
+        <div id="loveLetterSection" class="love-letter-section layer hidden">
             <div class="love-letter">
-                <h2>A Letter From My Heart 💌</h2>
+                <h2>A Letter on Canvas 💌</h2>
                 <div class="letter-content">
-                    <p>My Dearest Munene,</p>
-                    <p>One month ago, I never imagined I'd meet someone who makes me feel the way you do. Every moment with you feels like a beautiful dream I never want to wake up from.</p>
-                    <p>You have this incredible way of making ordinary moments feel extraordinary. Your smile lights up my world, and your laugh is my favorite sound.</p>
-                    <p class="inside-joke">Remember when [Add your inside joke here]? That's when I knew you were special. 😊</p>
-                    <p>This past month has been amazing, and I can't wait to create countless more memories with you.</p>
-                    <p class="signature">Yours,<br>[Your Name] ❤️</p>
+                     <p>My ataraxia💕(najua hujai skia io👀),</p>
+            
+            <p>Before you came into my world, it was a blank canvas,but not the kind full of possibility. It was dark. Fear hidden in the cracks of the walls, uncertainty spread everywhere. I was clinging on to remains of my former self, a painting left unfinished and fading.</p>
+            
+            <p>Then you became the sun in my world, a reason to smile.😊 You gave me love💓something that I had missed and which lacked in my life. You painted your way into my heart with every smile, every laugh, every moment. You always see the good in me and push me to be better😭. I am more than grateful.🥹</p>
+            
+            <p>You have added shades of joy I never knew existed, textures of happiness I cannot describe.🤭 Where there was once only gray, you brought pinks and turquoise and purple🫶. You became the masterpiece that transformed my empty canvas into something beautiful✨.</p>
+            
+            <p class="inside-joke">Remember when we did make up or when you gave me a potrait for my birthday gift? The colors may just seem basic or normal, but what the paint withing me 😭🫴my days!! you make me feel—warm, colorful, and full of wonder. Some memories engraved in my favorite brush strokes in our story(Let me not touch on the kunimaliza bit👀🫵🏾yes you know😂).</p>
+            
+            <p>As we continue growing closer, as our colors merge to make one unique complex hue,(random 2am thoguhts) let its radiance paint the life that is before us.😭 Let the journey of knowing each other be beautiful,🥹each day a new layer, each moment a new texture🖐️, each memory a new color🥰 on our shared canvas💓.</p>
+            
+            <p>Let us keep creating together. Forever.</p>
+            
+            <p class="signature">Your paramonos partner and co-artist,<br>[Munene] ❤️</p>
                 </div>
             </div>
         </div>

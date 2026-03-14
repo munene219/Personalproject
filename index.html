@@ -3,53 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For My gentle paradox ❤️</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>For You 🎨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background: linear-gradient(135deg, #ffc0cb, #add8e6, #ffc0cb);
+            background-size: 400% 400%;
+            animation: gradientFlow 15s ease infinite;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        @keyframes gradientFlow {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .password-box {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 50px 40px;
+            border-radius: 40px;
+            text-align: center;
+            max-width: 450px;
+            width: 100%;
+            box-shadow: 0 30px 60px rgba(255, 105, 180, 0.3);
+            border: 3px solid rgba(255, 255, 255, 0.5);
+            animation: floatIn 0.8s ease-out;
+        }
+
+        @keyframes floatIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .heart-icon {
+            font-size: 70px;
+            margin-bottom: 20px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: #ff69b4;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 16px;
+        }
+
+        input {
+            width: 100%;
+            padding: 18px;
+            margin-bottom: 25px;
+            border: 3px solid #add8e6;
+            border-radius: 50px;
+            font-size: 18px;
+            text-align: center;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #ff69b4;
+            box-shadow: 0 0 20px rgba(255, 105, 180, 0.4);
+            transform: scale(1.02);
+        }
+
+        button {
+            background: linear-gradient(135deg, #ff69b4, #add8e6);
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 15px 30px rgba(255, 105, 180, 0.5);
+        }
+
+        .error-message {
+            color: #ff69b4;
+            min-height: 30px;
+            font-size: 16px;
+            margin: 15px 0;
+            font-weight: 500;
+        }
+
+        .hint {
+            color: #999;
+            font-size: 14px;
+            padding-top: 15px;
+            border-top: 2px dashed #add8e6;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-8px); }
+            40%, 80% { transform: translateX(8px); }
+        }
+
+        .shake {
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @media (max-width: 480px) {
+            .password-box {
+                padding: 30px 20px;
+            }
+            h1 {
+                font-size: 26px;
+            }
+            input, button {
+                padding: 15px;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <div class="password-box">
-            <div class="heart-icon">💌</div>
-            <h1>A Little Something for Misty🤭</h1>
-            <p class="subtitle">Enter our special code to begin</p>
-            
-            <input type="password" id="password" placeholder="Enter the code" autofocus>
-            <button onclick="checkPassword()">Open My Surprise</button>
-            
-            <p id="errorMessage" class="error-message"></p>
-            
-            <div class="hint">
-                <small>💝 Hint: It's the date we became "us" (MMDD)</small>
-            </div>
+    <div class="password-box">
+        <div class="heart-icon">🎨</div>
+        <h1>A Special Gallery Awaits</h1>
+        <p class="subtitle">Enter the code to begin our artistic journey</p>
+        
+        <input type="password" id="password" placeholder="Enter 4-digit code" maxlength="4" inputmode="numeric" pattern="[0-9]*" autofocus>
+        
+        <button onclick="checkPassword()">Open Gallery</button>
+        
+        <div id="errorMessage" class="error-message"></div>
+        
+        <div class="hint">
+            💝 Hint: The date we became "us" (MMDD)
         </div>
     </div>
 
     <script>
         function checkPassword() {
-            // CHANGE THIS TO YOUR SPECIAL DATE! (MMDD format)
-            const correctPassword = "0218"; // Example: March 17th
-            
-            const enteredPassword = document.getElementById('password').value.replace(/\D/g, '');
+            const correctPassword = "0218";
+            const enteredPassword = document.getElementById('password').value.trim();
             const errorElement = document.getElementById('errorMessage');
+            const box = document.querySelector('.password-box');
             
             if (enteredPassword === correctPassword) {
                 window.location.href = 'main.html';
             } else {
                 const messages = [
-                    "Not quite right, beautiful. Try again? 💕",
-                    "Hmm, think about our special day...",
-                    "Almost! It's the day we started our story ❤️",
-                    "Nice try! But you know the real date 😊"
+                    "Not quite right, beautiful. Try again! 💕",
+                    "That's not our special day...",
+                    "Almost! Think of our date ❤️",
+                    "Nice try! You know the real date 😊"
                 ];
                 const randomMessage = messages[Math.floor(Math.random() * messages.length)];
                 errorElement.textContent = randomMessage;
                 
-                const box = document.querySelector('.password-box');
-                box.style.animation = 'shake 0.5s';
+                box.classList.add('shake');
                 setTimeout(() => {
-                    box.style.animation = '';
+                    box.classList.remove('shake');
                 }, 500);
+                
+                document.getElementById('password').value = '';
+                document.getElementById('password').focus();
             }
         }
 
@@ -58,6 +208,10 @@
                 checkPassword();
             }
         });
+
+        window.onload = function() {
+            document.getElementById('password').focus();
+        };
     </script>
 </body>
 </html>
